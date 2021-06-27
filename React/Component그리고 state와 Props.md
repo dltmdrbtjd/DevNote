@@ -91,5 +91,6 @@ class App extends React.Component {
 
 export default App;
 ```
+
 위와 같은 형식이 클래스형 컴포넌트의 방식이다. 이제 컴포넌트에서 컴포넌트로 데이터를 넘겨주는 방식을 알아보도록하자 앞서 counstructor 부분에 있는 데이터를 BucketList로 state를 넘겨준다고 생각하면 된다. BucketList 컴포넌트 안에 list란 이름으로 데이터를 전달해준게 지금 BucketList에 데이터를 넘겨준것이라고 보면된다. 그 후에 BucketList에서 함수형 컴포넌트 생성시 파라미터 안에 props를 받아서 cosnole.log(props)로 찍어보면 확인할 수 있다.
 
