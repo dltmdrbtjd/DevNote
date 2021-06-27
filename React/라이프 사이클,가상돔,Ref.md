@@ -21,3 +21,43 @@
 3. componentDidMount() : 컴포넌트가 화면에 나타나는 것을 마운트(Mount)한다고 표현한다. didMount()는 마운트가 완료되었다. 라는 말이다. 이 함수는 첫번째 렌더링을 마친 후에만 딱 한 번 실행된다. 컴포넌트가 리렌더링할때에는 실행되지 않는다. 보통은 이 안에서 ajax요청, 이벤트 등록, 함수 호출 등의 작업을 처리한다. 또 이미 가상돔이 실제돔으로 올라간 후이기 때문에 DOM관련 처리를 해도 된다.
 4. componentDidUpdate() : DidMount()가 첫 렌더링 후에 호출 되는 함수라면, DidUpdate()는 리렌더링을 완료한 후 실행되는 함수이다. 이 함수에는 중요한 파라미터가 2가지 있는데 prevProps와 prevState이다. 각각 업데이트 되기 전의 props와state이다. 이전 데이터와 비교할 일이 있으면 가져다 사용하면된다. DidUpdate()가 실행될 때도 가상돔이 실제돔으로 올라간 후이기 때문에 DOM관련 처리를 해도된다.
 5. componentWillUnmount() : 컴포넌트가 DOM에서 제거 될 때 실행하는 함수이다. 만약 우리가 스크롤 위치 추적이나 어떤 이벤트 리스너를 등록했다면 여기에서 꼭 헤제를 해줘야한다. 컴포넌트 없이 이벤트를 남겨두면 안되기 때문이다. 
+
+## Ref란 ?
+- 리액트에서 돔요소를 가지고 오는방법은? 예를 들어서 input에서 텍스트 value를 가지고 오고 싶으면 어떻게 접근할까? 그것은 리액트 요소에서 가지고 오면된다. 리액트 요소를 가지고 오는 방법에 대해서 살펴보자. React.createRef()를 사용하면된다.
+
+```
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    // App 컴포넌트의 state를 정의해줍니다.
+    this.state = {
+      list: ["영화관 가기", "매일 책읽기", "수영 배우기"],
+    };
+    // ref는 이렇게 선언합니다! 
+    this.text = React.createRef();
+  }
+
+  componentDidMount(){
+    console.log(this.text);
+		console.log(this.text.current);
+  }
+
+  render() {
+    
+    return (
+      <div className="App">
+        <Container>
+          <Title>내 버킷리스트</Title>
+          <Line />
+          <BucketList list={this.state.list} />
+        </Container>
+
+        <div>
+          <input type="text" ref={this.text}/>
+        </div>
+      </div>
+    );
+  }
+}
+```
+위와 같이 ref는 constructor안에 React.createRef()로 선언하고 아래 input태그에 ref={this.text} 로 받아올 수 있다. 그후에 componentDidMount()로 콘솔을 찍어보면 제대로 받아 왔는지 확인할 수 있다.
