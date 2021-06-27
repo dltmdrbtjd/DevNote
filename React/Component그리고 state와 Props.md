@@ -33,8 +33,7 @@ function Bucketlist(props){
     return (
         <div>버킷 리스트</div>
     );
-}
-
+}ㅎ
 const BucketList = (props) => {
     return (
         <div>
