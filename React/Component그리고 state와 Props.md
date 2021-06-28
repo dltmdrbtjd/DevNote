@@ -17,7 +17,7 @@
 - 컴포넌트들은 데이터를 어떤식으로 관리할까? 방법은 state와 props를 이용해서 데이터를 사용한다. 우선 state는 컴포넌트가 가지고 있는 데이터이다. 즉 자기자신이 가지고 있는 데이터라고 이해하면 쉽다. 그리고 Props는 컴포넌트가 부모 컴포넌트로 부터 받아온 데이터이다. 예를 들어 < header /> 에서 사용한 데이터인 로고 이미지 경로나 메뉴 이름들은 다른 컴포넌트들에서는 사용하지 않는다. 즉 헤더 컴포넌트 내에서만 쓰는 정보인 셈이다. 여기서 알 수 있는건 state는 한 컴포넌트에서만 사용하는 정보를 주로 넣어놓고 생성,수정하는 데이터이다. 생성과 수정도 오직 해당 컴포넌트 내에서만 이루어진다.
 
 - Props는 부모 컴포넌트로 부터 받아온 데이터라는데 무슨말일까? 아래 예시 코드를 살펴보자
-```
+```javascript
 <container>
 	<imagebanner/>
 	<contents1/>
@@ -26,7 +26,7 @@
 위와 같은 형태의 컴포넌트들이 있다고 가정해보자. container는 두 개의 자식 컴포넌트를 가지고 있다. imgaebannr에 필요한 이미지 경로 데이터를 부모인 container가 가지고 있다고 가정하면(state로) 이 때 imagebanner 컴포넌트는 자신의 부모인 container로 붙어 데이터를 받아서 사용한다. 여기서 container가 가지고 있는 이미지 경로를 imagebanner에 전달해주면 이 이미지 경로가 imagebanner의 props가 되는것이다. 즉 앞서 말한것처럼 부모 컴포넌트로 부터 전달 받은 데이터를 Props라고 한다. 그리고 Props는 자기 자신의 데이터가 아니기 때문에 수정할 수 없다.
 
 ## 함수형 Component란?
-```javscript
+```javascript
 import React from 'react'; 
 
 function Bucketlist(props){
