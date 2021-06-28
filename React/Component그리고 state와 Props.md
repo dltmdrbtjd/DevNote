@@ -3,7 +3,7 @@
 
 1. HTML을 사용하다보면 header, container, footer 등등으로 나누다보면 코드가 상당히 길어지게 된다. 그것들을 하나하나 컴포넌트들로 나누어서 사용하면 매우 깔끔하게 사용가능하다.
 
-```
+```javascript
 <div className="App">
   <header />
   <container />
@@ -26,7 +26,7 @@
 위와 같은 형태의 컴포넌트들이 있다고 가정해보자. container는 두 개의 자식 컴포넌트를 가지고 있다. imgaebannr에 필요한 이미지 경로 데이터를 부모인 container가 가지고 있다고 가정하면(state로) 이 때 imagebanner 컴포넌트는 자신의 부모인 container로 붙어 데이터를 받아서 사용한다. 여기서 container가 가지고 있는 이미지 경로를 imagebanner에 전달해주면 이 이미지 경로가 imagebanner의 props가 되는것이다. 즉 앞서 말한것처럼 부모 컴포넌트로 부터 전달 받은 데이터를 Props라고 한다. 그리고 Props는 자기 자신의 데이터가 아니기 때문에 수정할 수 없다.
 
 ## 함수형 Component란?
-```
+```javscript
 import React from 'react'; 
 
 function Bucketlist(props){
@@ -46,7 +46,7 @@ export default BucketList; # 외부로 보내주기위한 코드
 
 함수형 컴포넌트는 위와 같이 2가지의 방식으로 사용할 수 있는데 보통 밑에 방식으로 사용하는걸 더 선호한다. export default BucketList는 이 컴포넌트를 외부로 보내주기 위해서 사용한 코드이다.
 그 후에 App.js로 돌아가서 BucketList 컴포넌트를 import시켜주고 사용하면 된다.
-```
+```javascript
 import React from 'react';
 import BucketList from './BucketList'; ## 이렇게 우리가 사용할 컴포넌트를 import시켜주고 사용한다.
 
@@ -64,7 +64,7 @@ export default App;
 ```
 
 ## 클래스형 Component란?
-```
+```javascript
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
