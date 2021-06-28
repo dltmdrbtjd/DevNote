@@ -7,7 +7,7 @@ yarn add styled-components
 ```
 
 - Styled-components를 적용하고 사용하는 방식
-```
+```javascript
 import React from 'react';
 import styled from 'styled-components';
 
