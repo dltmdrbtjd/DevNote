@@ -51,3 +51,4 @@ const mapDispatchToProps = (dispatch) => ({
 ```
 
 이런식으로 create,update,delete도 모두 불러와서 같은 방식으로 적용시켜주면 된다.
+사실 모든 파일을 다 보면서 이해해야 하지만 간략하게 그 사용법들에 대해서만 짧게 정리해보았다!
