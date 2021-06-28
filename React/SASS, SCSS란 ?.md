@@ -7,7 +7,7 @@ yarn add node-sass@4.14.1 open-color sass-loader classnames
 ## SCSS의 문법
 - SCSS의 주요 문법들만 살펴보도록 하자 모든 문법을 다 외우는것은 CSS의 모든 속성 값을 다 외우지는 않는것 처럼 외울필요는 없다. 중요한것 몇가지만 알아두고 그때그때 필요한것은 공식문서에서 살펴보면 된다. https://sass-lang.com/documentation <-- 공식문서 사이트.
 - 우선 기본적인 문법은 CSS와 동일한데 nesting기능이 가능하다.
-```
+```javascript
 div {
     p {
       color: #888888;
@@ -23,7 +23,7 @@ div {
 }
 ```
 위와 같이 div 아래에 p,img태그 등의 스타일을 줄때 다른 블록을 만들필요없이 축약형으로 묶어서 한 번에 사용할 수 있다.
-```
+```javascript
 div {
   background-color: green
   &:hover { background-color: blue }
@@ -37,7 +37,7 @@ div {
 
 또 위와 같이 상위 요소 이어쓰기는 " & " 로 클래스명 등, 글자도 이어쓸 수 있다.
 
-```
+```javascript
 $defaultSize: 20px;
 $className: blue;
 
