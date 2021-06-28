@@ -14,7 +14,7 @@ yarn add redux react-redux
 위와 같은 방식으로 상태관리가 돌아간다고 볼 수 있다.
 
 - 보통 리덕스를 사용할 때는 묘양새대로 action, actionCreator, reducer를 분리해서 작성한다. ( 액션은 액션끼리, 액션생성함수는 액션생성함수끼리, 리듀서는 리듀서끼리 작성 ) 이 구조는 모양대신 기능으로 묶어서 작성하는 방식이다. 
-```
+```javascript
 // Actions
 const LOAD   = 'my-app/widgets/LOAD';
 const CREATE = 'my-app/widgets/CREATE';
@@ -55,19 +55,19 @@ export function getWidget () {
 
 위의 예시가 리덕스 모듈의 예시이다. 각각 순서를 살펴보자
 1. Action ( 컴포넌트 변화의 수만큼 만든다. )
-```
+```javascript
 const LOAD = 'bucket/LOAD';
 const CREATE = 'bucket/CREATE';
 ```
 
 2. initialState ( 초기 상태값을 만들어준다. 즉 기본값 )
-```
+```javascript
 const initialState = {
   list: ["영화관 가기", "매일 책읽기", "수영 배우기"],
 };
 ```
 3. ActionCreator ( 액션 생성 함수를 작성한다. )
-```
+```javascript
 export const loadBucket = (bucket) => {
     return { type: LOAD, bucket };
 }
@@ -78,7 +78,7 @@ export const createBucket = (bucket) => {
 ```
 
 4. Reducer ( 리듀서를 작성한다. load할땐 가지고있던 기본값을 그대로 뿌려주고 create할땐 새로 받아온 값을 가지고 있던 값에 더해서 리턴해준다. )
-```
+```javascript
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     // do reducer stuff
@@ -96,7 +96,7 @@ export default function reducer(state = initialState, action = {}) {
 ```
 
 5. Store ( ex) configStore.js 파일을 만들어 스토어를 만들어준다. )
-```
+```javascript
 //configStore.js
 import { createStore, combineReducers } from "redux";
 import bucket from './modules/bucket';
@@ -116,7 +116,7 @@ export default store;
 
 -  리덕스와 컴포넌트를 연결하는법
 아래는 index.js파일이다.
-```
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
