@@ -25,7 +25,7 @@
 ## Ref란 ?
 - 리액트에서 돔요소를 가지고 오는방법은? 예를 들어서 input에서 텍스트 value를 가지고 오고 싶으면 어떻게 접근할까? 그것은 리액트 요소에서 가지고 오면된다. 리액트 요소를 가지고 오는 방법에 대해서 살펴보자. React.createRef()를 사용하면된다.
 
-```
+```javascript
 class App extends React.Component {
   constructor(props) {
     super(props);
