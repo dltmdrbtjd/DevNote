@@ -56,5 +56,5 @@ auth().signInWithEmailAndPassword(email, password)
   });
 ```
 
-- 위의 예제도 공식사이트에 있는 방법이고 다양한 사용법은 공식사이트에 이는 문서를 보면서 사용하면 된다.
+- 위의 예제도 공식사이트에 있는 방법이고 다양한 사용법은 공식사이트에 있는 문서를 보면서 사용하면 된다.
 - 링크 : https://firebase.google.com/docs/auth/web/start?authuser=0
