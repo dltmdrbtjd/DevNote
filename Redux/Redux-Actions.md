@@ -54,7 +54,7 @@ const setUser = createAction(SET_USER, (user) => ({ user }));
 
 
 ## Reducer에서 switch문 대신 handleActions 사용하기
-- 리듀서에서 액션의 type에 따라 다른 작업을 하기 위해서 위에서는 switch문을 사용했다. 하지만 이 방식엔 아주 중요한 결점이 있다. 그건 바로 스코프가 리듀서 함수로 설정되어 있다는 것이다. 그렇기 때문에 서로 다른 case에서 let이나 const를 통하여 변수를 선언하려고 하다보면 같은 이름이 중첩될시엔 에러가 발생한다. 이 문제를 해결해 주는것이 바로 handleActions이다. 이 함수를 사용하면 아래와 같이 해결할 수 있다.
+- 리듀서에서 액션의 type에 따라 다른 작업을 하기 위해서 위에서는 switch문을 사용했다. 하지만 이 방식엔 아주 중요한 결점이 있다. 그건 바로 스코프가 리듀서 함수로 설정되어 있다는 것이다. 그렇기 때문에 서로 다른 case에서 let이나 const를 통하여 변수를 선언하려고 하다보면 같은 이름이 중첩될시엔 에러가 발생한다. 이 문제를 해결해 주는것이 바로 handleActions이다. 이 함수를 사용하면 아래와 같이 사용할 수 있다.
 
 ```javascript
 const reducer = handleActions({
