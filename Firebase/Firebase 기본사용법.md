@@ -29,7 +29,7 @@ export { store };
 ```
 위와 같이 만든후에 필요한 파일에 연결시켜준다.
 ```javascript
-import { stor } from "./firebase";
+import { store } from "./firebase";
 ```
 
 
@@ -43,7 +43,7 @@ bucket.doc("bucket_item").update({ text: "수영 배우기", compeleted: false }
 
 #데이터 삭제하기, 콜렉션을 찾고 -> 도큐먼트id로 delete
 bucket.doc("bucket_item").delete([도큐먼트 ID]);
-```
+``` 
 
 ### 콜렉션의 이름 변경해서 추가하는법
 ```javascript
