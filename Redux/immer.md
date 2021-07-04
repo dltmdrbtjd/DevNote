@@ -17,7 +17,7 @@ import produce from 'immer';
 ```javascript
 import produce from 'immer';
 
-const initialState = [
+const initialState = list:[
   {
     coffee: 'Espresso',
     check: true,
@@ -63,7 +63,7 @@ export default handleActions(
   {
     [CREATE]: (state, action) =>
       produce(state, draft => {
-        darft.list.push({
+        draft.list.push({
           coffee: 'Ice Lattee',
           check: true,
         });
