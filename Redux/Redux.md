@@ -1,6 +1,6 @@
 ## Redux란 ?
 ```
-yarn add redux react-redux
+yarn add redux react-redux 
 ```
 위와 같이 기본적으로 설치를해주고 시작하면된다.
 
