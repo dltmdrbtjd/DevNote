@@ -21,7 +21,7 @@ const initialState = {
 };
 
 // Action Creators
-export function logOut() {
+export function logOut(user) {
   return { type: LOG_OUT, user };
 }
 
