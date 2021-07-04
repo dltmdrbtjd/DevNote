@@ -5,7 +5,7 @@
 ```javascript
 yarn add redux-actions
 ```
-
+ 
 ## 기본적인 Ducks 구조
 ```javascript
 
