@@ -3,7 +3,7 @@
 
 
 ## 사용법
-- firebase에서 auth 서비스를 활성화 시켜놨다는 전제하에 설명하겠다.
+- firebase에서 storage 서비스를 활성화 시켜놨다는 전제하에 설명하겠다.
 - 우선 현재 나의 파일과 연결시켜놓은 firebase.js에서 firebase storage를 추가해준다.
 
 ```javascript
