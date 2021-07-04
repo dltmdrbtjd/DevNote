@@ -16,17 +16,17 @@ yarn add redux react-redux
 - 보통 리덕스를 사용할 때는 묘양새대로 action, actionCreator, reducer를 분리해서 작성한다. ( 액션은 액션끼리, 액션생성함수는 액션생성함수끼리, 리듀서는 리듀서끼리 작성 ) 이 구조는 모양대신 기능으로 묶어서 작성하는 방식이다. 
 ```javascript
 // Actions
-const LOAD   = 'my-app/widgets/LOAD';
-const CREATE = 'my-app/widgets/CREATE';
-const UPDATE = 'my-app/widgets/UPDATE';
-const REMOVE = 'my-app/widgets/REMOVE';
+const LOAD   = 'coffee/LOAD';
+const CREATE = 'coffee/CREATE';
+const UPDATE = 'coffee/UPDATE';
+const DELETE = 'coffee/DELETE';
 
-// Reducer
-export default function reducer(state = {}, action = {}) {
-  switch (action.type) {
-    // do reducer stuff
-    default: return state;
-  }
+initialState = {
+  list: [
+    { text: "커피가 너무 좋아좋아" },
+    { text: "커피가 너무 좋아좋아" },
+    { text: "커피가 너무 좋아좋아" },
+  ]
 }
 
 // Action Creators
@@ -34,27 +34,30 @@ export function loadWidgets() {
   return { type: LOAD };
 }
 
-export function createWidget(widget) {
-  return { type: CREATE, widget };
+export function createCoffee(coffee) {
+  return { type: CREATE, coffee };
 }
 
-export function updateWidget(widget) {
-  return { type: UPDATE, widget };
+export function updateCoffee(coffee) {
+  return { type: UPDATE, coffee };
 }
 
-export function removeWidget(widget) {
-  return { type: REMOVE, widget };
+export function deleteCoffee(coffee) {
+  return { type: DELETE, coffee };
 }
 
-// side effects, only as applicable
-// e.g. thunks, epics, etc
-export function getWidget () {
-  return dispatch => get('/widget').then(widget => dispatch(updateWidget(widget)))
+// Reducer
+export default function reducer(state, action) {
+  switch (action.type) {
+    // 각각의 case문을 사용하여 현재의 상태와 전달 받은 액션을 참고하여 새로운 상태를 만들어서 반환한다.
+    default: return state;
+  }
 }
+
 ```
 
 위의 예시가 리덕스 모듈의 예시이다. 각각 순서를 살펴보자
-1. Action ( 컴포넌트 변화의 수만큼 만든다. )
+1. Action ( 컴포넌트 변화의 수만큼 만든다. ) / ActionCreator 타입에 들어갈 녀석들을 만들어주는것
 ```javascript
 const LOAD = 'bucket/LOAD';
 const CREATE = 'bucket/CREATE';
@@ -66,7 +69,8 @@ const initialState = {
   list: ["영화관 가기", "매일 책읽기", "수영 배우기"],
 };
 ```
-3. ActionCreator ( 액션 생성 함수를 작성한다. )
+
+3. ActionCreator ( 액션 생성 함수를 작성한다. ) / 액션을 만드는 함수이다. 단순히 파라미터를 받아와서 액션 객체 형태로 만들어준다.
 ```javascript
 export const loadBucket = (bucket) => {
     return { type: LOAD, bucket };
@@ -77,7 +81,7 @@ export const createBucket = (bucket) => {
 }
 ```
 
-4. Reducer ( 리듀서를 작성한다. load할땐 가지고있던 기본값을 그대로 뿌려주고 create할땐 새로 받아온 값을 가지고 있던 값에 더해서 리턴해준다. )
+4. Reducer ( 리듀서를 작성한다. load할땐 가지고있던 기본값을 그대로 뿌려주고 create할땐 새로 받아온 값을 가지고 있던 값에 더해서 리턴해준다. ) / 변화를 일으키는 함수이다. 리듀서는 두 가지의 파라미터를 받아오고 현재의 상태와, 전달 받은 액션을 참고하여 새로운 상태를 만들어서 반환한다.
 ```javascript
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
@@ -95,7 +99,7 @@ export default function reducer(state = initialState, action = {}) {
 }
 ```
 
-5. Store ( ex) configStore.js 파일을 만들어 스토어를 만들어준다. )
+5. Store ( ex) configStore.js 파일을 만들어 스토어를 만들어준다. ) / 리덕스에서 한 애플리케이션 당 하나의 스토어를 만들게 된다. 스토어 안에는 현재의 웹,앱 상태와 리듀서가 들어가있고, 추가적으로 몇가지 내장 함수들이 있다.
 ```javascript
 //configStore.js
 import { createStore, combineReducers } from "redux";
@@ -139,3 +143,8 @@ ReactDOM.render(
 
 reportWebVitals();
 ```
+
+## Dispatch , subscribe ( 디스패치, 구독 )
+- 디스패치는 스토어의 내장함수 중 하나이다. 디스패치는 액션을 발생 시키는 것 이라고 이해하면 된다. dispatch라는 함수에는 액션을 파라미터로 전달한다. dispatch(action) 이런방식이다. 그렇게 호출을 하면 스토어는 리듀서 함수를 실행시켜서 해당 액션을 처리하는 로직이 있다면 액션을 참고하여 새로운 상태를 만들어준다.
+
+- 구독 또한 스토어의 내장함수 중 하나이다 .subscribe 함수는 함수 형태의 값을 파라미터로 받아온다. subscribe 함수에 특정 함수를 전달해주면, 액션이 디스패치 되었을 때 마다 전달해준 함수가 호출된다.
