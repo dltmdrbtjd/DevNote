@@ -17,17 +17,18 @@ import produce from 'immer';
 ```javascript
 import produce from 'immer';
 
-const initialState = list:[
-  {
-    coffee: 'Espresso',
-    check: true,
-  },
-  {
-    coffee: 'Ice Americano',
-    check: false,
-  },
-];
-
+const initialState = {
+  list:[
+    {
+      coffee: 'Espresso',
+      check: true,
+    },
+    {
+      coffee: 'Ice Americano',
+      check: false,
+    },
+  ];
+}
 const nextState = produce(initialState, draftState => {
   draftState.push({ coffee: 'Ice Latte' });
   draftState[1].check = true;
