@@ -5,13 +5,13 @@
 
 
 ## 사용법
-- firebase에서 auth 서비스를 활성화 시켜놨다는 전제하에 설명하겠다.
-- 우선 현재 나의 파일과 연결시켜놓은 firebase.js 에서 firebase realtime을 추가해준다.
+- firebase에서 realtime database 서비스를 활성화 시켜놨다는 전제하에 설명하겠다.
+- 우선 현재 나의 파일과 연결시켜놓은 firebase.js 에서 firebase database를 추가해준다.
 ```javascript
 // firebase.js
 
 import firebase from "firebase/app";
-import "firebase/database"; // realtime import하기!
+import "firebase/database"; // realtime database import하기!
 
 const firebaseConfig ={ 사용자정보 }
 
@@ -23,7 +23,7 @@ export { realtime } // 외부에서 사용하기위해 export시켜준다.
 ```
 
 - 예를들어 redux를 사용중이라면 리덕스에서 realtime을 import 시켜준 후에 사용해주면 된다.
-- 데이터 한 번 읽기
+- 데이터 한 번 읽기 ( 공식 문서 예제 )
 ```javascript
 const dbRef = firebase.database().ref();
 dbRef.child("users").child(userId).get().then((snapshot) => {
