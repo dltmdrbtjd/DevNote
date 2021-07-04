@@ -22,14 +22,14 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // firebase의 firestore 인스턴스를 변수에 저장
-const firestore = firebase.firestore();
+const store = firebase.firestore();
 
 // 필요한 곳에서 사용할 수 있도록 내보내기
-export { firestore };
+export { store };
 ```
-위와 같이 만든후에 App.js에 연결시켜준다.
-```
-import { firestore } from "./firebase";
+위와 같이 만든후에 필요한 파일에 연결시켜준다.
+```javascript
+import { stor } from "./firebase";
 ```
 
 
