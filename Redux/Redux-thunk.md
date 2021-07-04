@@ -18,7 +18,7 @@ import thunk from './redux-thunk';
 import reducer from './reducer';
 
 export const history = createBrowserHistory();
-
+ 
 const rootReducer = combineReducers({
   router: connectRoute(history),
 });
