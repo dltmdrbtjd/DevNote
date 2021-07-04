@@ -11,6 +11,7 @@ yarn add redux-thunk
 - 리덕스 미들웨어는 리덕스에서 액션이 디스패치된 이후에 리듀서에서 상태를 변경하기 전에 추가 작업을 할 수 있도록 도와준다. 상태를 변경하기전 액션을 취소하거나 콘솔에 액션 혹은 상태값 출력, 그리고 상태값을 변경하여 리듀서에 전달할수도 있다. 다른 것으로는 특정 액션이 발생 하였을때 다른 액션을 발생하게 하거나 함수를 실행 시킬 수 있다. 일반적으로는 비동기 작업을 처리할 때 가장 많이 사용되며 API호출을 위해 사용한다.
 
 ``` javascript
+// configStore.js
 import { createBrowserHistory } from "history";
 import { connectRouter } from "connected-react-router";
 import { createStore, applyMiddleware, combineReducers } from 'redux';
@@ -40,6 +41,7 @@ const ActionCreator = (payload) => ({action: 'ACTION', payload});
 아래는 1초뒤 액션이 디스패치 되는 예제 코드이다.
 ### < 예제 코드 > // 1초뒤 디스패치하기
 ```javascript
+// module.js
 const CREATE = 'CREATE';
 
 const createCoffee = (coffee) => {
