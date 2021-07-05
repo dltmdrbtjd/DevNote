@@ -48,16 +48,18 @@ const CREATE = 'coffee/CREATE';
 export const createCoffee = createAction(CREATE, coffee => coffee);
 
 // 초기값 설정
-const initialState = [
-  {
-    coffee: 'Espresso',
-    check: true,
-  },
-  {
-    coffee: 'Ice Americano',
-    check: false,
-  },
-];
+const initialState = {
+  list:[
+    {
+      coffee: 'Espresso',
+      check: true,
+    },
+    {
+      coffee: 'Ice Americano',
+      check: false,
+    },
+  ];
+}
 
 // handleActions로 리듀서 함수 작성
 export default handleActions(
