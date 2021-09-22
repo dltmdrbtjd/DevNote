@@ -140,5 +140,4 @@ try {
 
 제너레이터를 사용하면 실행중에도 제너레이터 호출 코드와 데이터를 교환할 수 있기 때문에 유용한 경우가 종종 있다. 그리고 제너레이터를 사용하면 이터러블 객체를 쉽게 만들 수 있다는 장점도 있다.
 
-- 간단한 코드정리 : https://github.com/dltmdrbtjd/DevNote/blob/main/JavaScript/generator.js
 - 출처 : https://ko.javascript.info/generators
