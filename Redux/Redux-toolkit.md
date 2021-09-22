@@ -102,7 +102,7 @@ export default reducer;
 ```
 
 ## createAsyncThunk() 미들웨어함수 사용법
-```
+```javascript
 const fetchUserLoad = createAsyncThunk('user/LOAD', async() => {
   // 첫 번째 인자에 액션타입을 지정해준다.
   // 두 번째 인자에 미들웨어 함수를 만든다.
@@ -149,7 +149,7 @@ export default reducer;
 ```
 ## TypeScript 사용시 useSelector 편하게 사용하는법
 - configureStore안에서 설정한다.
-```
+```javascript
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
 
 // useSelector hook 대신 사용한다.
