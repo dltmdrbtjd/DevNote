@@ -97,7 +97,7 @@ const userSlice = createSlice({
 });
 
 const { actions, reducer } = userSlice;
-export const { reducers } = actions;
+export const { addUser } = actions;
 export default reducer;
 ```
 
