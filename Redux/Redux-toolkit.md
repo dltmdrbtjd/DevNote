@@ -118,6 +118,7 @@ const fetchUserLoad = createAsyncThunk('user/LOAD', async() => {
 const initialState = {
   list: [],
   loading: false,
+}
 
 const userSlice = createSlice({
   name: 'user',
