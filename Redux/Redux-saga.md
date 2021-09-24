@@ -39,5 +39,5 @@ yield all([testSaga(), testSaga2(), testSaga3()])
 // testSaga()와 testSaga2(),testSaga3()이 동시에 실행되고, 모두 resolve될때까지 기다린다.
 ```
 
-참고 문서 : https://mskims.github.io/redux-saga-in-korean/
-직접 만든 예제 : https://github.com/dltmdrbtjd/Redux-saga-prac
+- 참고 문서 : https://mskims.github.io/redux-saga-in-korean/
+- 직접 만든 예제 : https://github.com/dltmdrbtjd/Redux-saga-prac
