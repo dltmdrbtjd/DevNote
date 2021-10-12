@@ -10,5 +10,5 @@
 
 ## 라이프사이클 다이어그램 ( 공식문서 Image )
 <p align="center">
-  <img src="https://kr.vuejs.org/images/lifecycle.png" />
+  <img src="https://kr.vuejs.org/images/lifecycle.png" width="600px"/>
 </p>
